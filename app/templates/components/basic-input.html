@@ -1,0 +1,12 @@
+<div class="form-group">
+
+    <label ng-if="label" for="input{{ ::uniqueId }}">{{ label }}</label>
+
+    <input
+            id="input{{ ::uniqueId }}"
+            type="{{ type }}"
+            ng-model="model"
+            class="form-control"
+            placeholder="{{ placeholder }}"
+            />
+</div>

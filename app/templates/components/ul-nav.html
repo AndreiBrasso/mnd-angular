@@ -1,0 +1,7 @@
+
+<li ng-repeat="model in models" ng-class="{active: location == model.link }" ng-if="model.display">
+    <a href="#{{ model.link }}">
+        {{ model.text }}
+    </a>
+</li>
+
