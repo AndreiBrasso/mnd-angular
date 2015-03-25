@@ -30,14 +30,14 @@ function ($scope, renderElements, RequestFactory, AuthFactory) {
                     'ng-submit': 'actions.login()',
                     elements: [
                         {
-                            directive: 'basic-input',
+                            directive: 'cool-input',
                             model: 'user.email',
                             type: 'text',
                             label: 'Email',
                             placeholder: 'youremail@here.com'
                         },
                         {
-                            directive: 'basic-input',
+                            directive: 'cool-input',
                             model: 'user.password',
                             type: 'password',
                             label: 'Password'

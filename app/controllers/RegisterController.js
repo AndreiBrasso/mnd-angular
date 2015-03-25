@@ -31,14 +31,14 @@ AppControllers.controller('RegisterCtrl', ['$scope', 'renderElements', 'AuthFact
                         'ng-submit': 'actions.register()',
                         elements: [
                             {
-                                directive: 'basic-input',
+                                directive: 'cool-input',
                                 model: 'user.email',
                                 type: 'text',
                                 label: 'Email',
                                 placeholder: 'youremail@here.com'
                             },
                             {
-                                directive: 'basic-input',
+                                directive: 'cool-input',
                                 model: 'user.password',
                                 type: 'password',
                                 label: 'Password'
