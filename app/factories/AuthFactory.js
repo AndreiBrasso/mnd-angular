@@ -4,17 +4,10 @@ AppFactories.factory('AuthFactory', ['RequestFactory', '$rootScope', '$location'
         var AuthFactory = {};
 
         AuthFactory.auth = false;
-        AuthFactory.permissions = ['perm1', 'none']; //todo: permissions should be taken from user
+        AuthFactory.permissions = []; //not used, but they are implemented :)
         AuthFactory.user = {};
 
         AuthFactory.handleLogin = function (data) {
-
-            //todo: temporarily until login request works
-            if (data.length) {
-                console.log('failed');
-                NotificationFactory.showNotification({type:'error',message:'Login Failed'});
-                return false;
-            }
 
             console.log(data);
             AuthFactory.user = data;
@@ -29,11 +22,10 @@ AppFactories.factory('AuthFactory', ['RequestFactory', '$rootScope', '$location'
 
         };
 
-        //todo: fix me , this needs to be after handleLogin otherwise it won't do the stuff
         if (RequestFactory.token) {
 
             AuthFactory.auth = true;
-            RequestFactory.get('users/'+RequestFactory.token, AuthFactory.handleLogin);
+            RequestFactory.get('countries/'+RequestFactory.token, AuthFactory.handleLogin);
         }
 
         AuthFactory.handleLogout = function () {
@@ -85,14 +77,28 @@ AppFactories.factory('AuthFactory', ['RequestFactory', '$rootScope', '$location'
 
             console.log('login');
 
-            RequestFactory.get('users?'+ $.param(data), AuthFactory.handleLogin);
+            var checkLogin = function(countries) {
+
+                var user = _.find(countries,function(country){
+
+                    return country.name.toLowerCase() === data.name.toLowerCase() && country.password === data.password;
+                });
+
+                if (!user) {
+                    NotificationFactory.showNotification({type:'error',message:'Login Failed'});
+                    return;
+                }
+
+                AuthFactory.handleLogin(user);
+            };
+            RequestFactory.get('countries', checkLogin);
         };
 
         AuthFactory.register = function (data) {
 
             console.log('register');
 
-            RequestFactory.post('users',data, AuthFactory.handleLogin);
+            RequestFactory.post('countries',data, AuthFactory.handleLogin);
         };
 
         return AuthFactory;

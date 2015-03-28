@@ -1,0 +1,107 @@
+<div class="row">
+
+    <div class="col-md-offset-1 col-md-10">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-success">
+
+                    <div class="panel-heading">
+                        List Of Treaties <span class="badge pull-right">{{ listOfTreaties.length }}</span>
+                    </div>
+
+                    <ul class="list-group">
+                        <li ng-repeat="country in listOfTreaties" class="list-group-item" >
+                            {{ country.name }}
+
+                            <span class="badge pull-right">5 turns left</span>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="panel panel-danger">
+
+                    <div class="panel-heading">
+                        List Of Treaties <span class="badge pull-right">{{ listOfWars.length }}</span>
+                    </div>
+
+                    <ul class="list-group">
+                        <li ng-repeat="country in listOfWars" class="list-group-item" >
+                            {{ country.name }}
+
+                            <span class="badge pull-right">10 turns left</span>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+
+                    <div class="panel-heading">List Of Incoming <span class="badge pull-right">{{ listOfIncoming.length }}</span>
+                    </div>
+
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="country in listOfIncoming">
+                            {{ country.name }}
+
+                            <div class="btn-group pull-right" role="group">
+                                <button type="button" class="btn btn-primary btn-xs">Accept</button>
+                                <button type="button" class="btn btn-danger btn-xs">Refuse</button>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="panel panel-warning">
+
+                    <div class="panel-heading">List Of Outgoing <span class="badge pull-right">{{ listOfOutgoing.length }}</span>
+                    </div>
+
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="country in listOfOutgoing">
+                            {{ country.name }}
+
+                            <div class="btn-group pull-right" role="group">
+                                <button type="button" class="btn btn-warning btn-xs">Cancel</button>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <button type="button" class="col-md-offset-3 col-md-6 btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Make a new treaty</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

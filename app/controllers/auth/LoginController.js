@@ -1,13 +1,13 @@
 AppControllers.controller('LoginCtrl', ['$scope', 'renderElements', 'RequestFactory', 'AuthFactory',
 function ($scope, renderElements, RequestFactory, AuthFactory) {
 
-    $scope.user = {email: '', password: '', remember: false};
+    $scope.country = {email: '', password: '', name: ''};
 
     $scope.actions = {
 
         login: function () {
 
-            AuthFactory.login($scope.user);
+            AuthFactory.login($scope.country);
         }
 
     };
@@ -31,21 +31,16 @@ function ($scope, renderElements, RequestFactory, AuthFactory) {
                     elements: [
                         {
                             directive: 'cool-input',
-                            model: 'user.email',
+                            model: 'country.name',
                             type: 'text',
-                            label: 'Email',
-                            placeholder: 'youremail@here.com'
+                            label: 'Country',
+                            placeholder: 'Romania'
                         },
                         {
                             directive: 'cool-input',
-                            model: 'user.password',
+                            model: 'country.password',
                             type: 'password',
                             label: 'Password'
-                        },
-                        {
-                            directive: 'checkbox',
-                            model: 'user.remember',
-                            label: 'Remember me'
                         },
                         {
                             el: 'button',

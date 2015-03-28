@@ -3,7 +3,7 @@ AppControllers.controller('UsersCtrl', ['$scope', 'renderElements', 'RequestFact
 
         $scope.userList = [];
 
-        RequestFactory.get('users',function(data){
+        RequestFactory.get('countries',function(data){
             $scope.userList = data;
         });
 

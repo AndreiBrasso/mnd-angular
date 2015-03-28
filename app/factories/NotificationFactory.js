@@ -1,20 +1,18 @@
 AppFactories.factory('NotificationFactory', ['$http', function ($http) {
-
+    //http://github.hubspot.com/messenger/docs/welcome/
     Messenger.options = {
-        extraClasses: 'messenger-fixed messenger-on-top',
-        theme: 'future'
+        extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
+        theme: 'air',
+        maxMessages: 3
     };
 
     var NotificationFactory = {};
 
     NotificationFactory.showNotification = function (options) {
 
-        options.showCloseButton = true;
-        options.id = 'messenger-alert';
+        //options.id = 'messenger-alert';
         options.hideAfter = 3;
 
-        // http://github.hubspot.com/messenger/docs/welcome/
-        console.log(options);
         Messenger().post(options);
     };
 

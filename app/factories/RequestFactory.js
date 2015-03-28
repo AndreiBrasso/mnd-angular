@@ -2,12 +2,13 @@ AppFactories.factory('RequestFactory', ['NotificationFactory', '$http', '$q', fu
 
     var RequestFactory = {};
 
-    RequestFactory.apiUrl = 'http://localhost:81/';
+    RequestFactory.apiUrl = 'http://localhost:80/';
 
     RequestFactory.token = localStorage.getItem('token');
 
     RequestFactory.updateToken = function(token) {
 
+        console.log('token',token);
         localStorage.setItem('token', token);
         if (token) {
             $http.defaults.headers.common.Authorization = RequestFactory.token = token;

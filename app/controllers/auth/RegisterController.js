@@ -1,13 +1,13 @@
 AppControllers.controller('RegisterCtrl', ['$scope', 'renderElements', 'AuthFactory',
     function ($scope, renderElements, AuthFactory) {
 
-        $scope.user = {email: '', password: ''};
+        $scope.country = {email: '', password: '', name: ''};
 
         $scope.actions = {
 
             register: function () {
 
-                AuthFactory.register($scope.user);
+                AuthFactory.register($scope.country);
 
             }
 
@@ -31,15 +31,22 @@ AppControllers.controller('RegisterCtrl', ['$scope', 'renderElements', 'AuthFact
                         'ng-submit': 'actions.register()',
                         elements: [
                             {
-                                directive: 'cool-input',
-                                model: 'user.email',
+                                directive: 'basic-input',
+                                model: 'country.name',
+                                type: 'text',
+                                label: 'Country',
+                                placeholder: ''
+                            },
+                            {
+                                directive: 'basic-input',
+                                model: 'country.email',
                                 type: 'text',
                                 label: 'Email',
                                 placeholder: 'youremail@here.com'
                             },
                             {
-                                directive: 'cool-input',
-                                model: 'user.password',
+                                directive: 'basic-input',
+                                model: 'country.password',
                                 type: 'password',
                                 label: 'Password'
                             },

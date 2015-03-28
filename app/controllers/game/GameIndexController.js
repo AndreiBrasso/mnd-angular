@@ -3,29 +3,18 @@ AppControllers.controller('GameIndexCtrl', ['$scope', 'renderElements', 'AuthFac
 
         $scope.welcomeMessage = 'Hello '+AuthFactory.user.email+'!';
 
+
+        $scope.listOfTreaties = [{name:'country one'},{name:'country second'},{name:'country ten'},{name:'country nine'}];
+        $scope.listOfWars = [{name:'country one'},{name:'country one'},{name:'country six'},{name:'country five'}];
+
+        $scope.listOfIncoming = [{name:'country one'},{name:'country one'},{name:'country six'},{name:'country five'}];
+        $scope.listOfOutgoing = [{name:'country one'},{name:'country one'},{name:'country six'},{name:'country five'}];
+
+
         $scope.actions = {
 
-            testNotification: function () {
-
-                NotificationFactory.showNotification({type: 'info', 'message': 'test notification'});
-            }
 
         };
-
-        var elements = [
-            {
-                el: 'h1',
-                'ng-bind': 'welcomeMessage'
-            },
-            {
-                directive: 'text-action',
-                txt: 'test-notification',
-                'ng-click': 'actions.testNotification()'
-            }
-        ];
-
-        $scope.html = renderElements(elements);
-
 
         $scope.$on('AuthChanged', function(){
 
