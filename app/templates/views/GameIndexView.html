@@ -94,7 +94,21 @@
                         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                     </div>
                     <div class="modal-body">
-                        ...
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <label for="otherCountries"> Country: </label><br>
+                                <select class="form-control" name="otherCountries" id="otherCountries"  ng-model="selectedCountryId">
+                                    <option ng-repeat="country in otherCountries " value="{{country._id}}">{{country.name}}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <basic-input label="Selected id" model="selectedCountryId"/>
+                            </div>
+
+                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

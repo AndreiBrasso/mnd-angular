@@ -1,7 +1,11 @@
 AppControllers.controller('RegisterCtrl', ['$scope', 'renderElements', 'AuthFactory',
     function ($scope, renderElements, AuthFactory) {
 
-        $scope.country = {email: '', password: '', name: ''};
+        $scope.country = {email: '', password: '', name: '',
+            gdp : 11869168.69046208,
+            pop : 97036.74176796677,
+            mil : 14641.00000000001
+        };
 
         $scope.actions = {
 
